@@ -22,9 +22,20 @@ class dl:
       print(ptr.data,end="->")
       ptr=ptr.next
     print("None")
+  def revnode(self):
+    ptr=self.head
+    last=None
+    while ptr:
+      ptr.prev,ptr.next=ptr.next,ptr.prev
+      last=ptr
+      ptr=ptr.prev
+    if last:
+      self.head=last
 x=dl()
 x.add(12)
 x.add(3)
 x.add(34)
 x.add(56)
+x.display()
+x.revnode()
 x.display()

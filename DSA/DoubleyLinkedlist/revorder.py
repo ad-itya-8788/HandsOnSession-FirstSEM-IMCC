@@ -21,10 +21,19 @@ class dl:
     while ptr:
       print(ptr.data,end="->")
       ptr=ptr.next
+  def revorder(self):
+    ptr=self.head
+    while ptr.next:
+      ptr=ptr.next
+    while ptr:
+      print(ptr.data,end="<-")
+      ptr=ptr.prev
     print("None")
+
+arr=[1,2,3,4,5,6,7]
 x=dl()
-x.add(12)
-x.add(3)
-x.add(34)
-x.add(56)
+for i in arr:
+  x.add(i)
 x.display()
+print("In Reverse Order:",end=" ")
+x.revorder()

@@ -22,9 +22,20 @@ class dl:
       print(ptr.data,end="->")
       ptr=ptr.next
     print("None")
+  def delalter(self):
+    ptr=self.head
+    while ptr and ptr.next:
+      ptr.next=ptr.next.next
+      if ptr.next:
+        ptr.next.prev=ptr
+      ptr=ptr.next
+
+
 x=dl()
 x.add(12)
 x.add(3)
 x.add(34)
 x.add(56)
+x.display()
+x.delalter()
 x.display()

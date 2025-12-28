@@ -21,10 +21,27 @@ class dl:
     while ptr:
       print(ptr.data,end="->")
       ptr=ptr.next
-    print("None")
+  def addpos(self,data,pos):
+    ptr=self.head
+    count=1
+    newnode=Node(data)
+    while ptr:
+      if count==pos:
+        newnode.next=ptr.next
+        if ptr.next:
+          ptr.next.prev=newnode
+        ptr.next=newnode
+        newnode.prev=ptr
+        return
+      count+=1
+      ptr=ptr.next
+arr=[1,2,3,4,5,6,7]
 x=dl()
-x.add(12)
-x.add(3)
-x.add(34)
-x.add(56)
+for i in arr:
+  x.add(i)
 x.display()
+print("In Reverse Order:",end=" ")
+pos=int(input("90 add at position :"))
+x.addpos(90,pos)
+x.display()
+
